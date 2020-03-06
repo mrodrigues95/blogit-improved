@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blog It</title>
+    <!--My icon-->
+    <link rel="icon" href="../img/BlogItIcon.png">
+
+    <!--jQuery-->
+    <script src="../js/lib/jquery-2.1.4.js"></script>
+    <!--jQuery mobile-->
+    <script src="../js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jQuery validate-->
+    <script src="../js/lib/jquery.validate.js"></script>
+    <!--jQuery hashtag plugin-->
+    <script src="../js/lib/jquery.tagsinput.js"></script>
+    <!--jQuery mobile css-->
+    <link rel="stylesheet" type="text/css" href="../css/lib/jquery.mobile-1.4.5.css">
+    <!--jQuery hashtag plugin css-->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.tagsinput.css">
+
+    <!--My scripts-->
+    <script src="../js/database.js"></script>
+    <script src="../js/mainDAL.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/facade.js"></script>
+
+    <!--My style sheet-->
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.min.css">
+</head>
+<body>
+    <div data-role="page" id="BlogItCreatePage">
+        <header data-role="header" data-position="fixed" style="background-color:#42413b;">
+            <h1 style="color: white;">Create a Blog</h1>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#BlogItHomePage" data-icon="home" data-theme="c">Home</a>
+                    </li>
+                    <li><a href="#BlogItCreatePage" data-icon="plus" data-theme="c" class="ui-btn-active                     
+                        ui-state-persist">Create Blog</a>
+                    </li>
+                    <li><a href="#BlogItDashboardPage" data-icon="grid" data-theme="c">Dashboard</a>
+                    </li>
+                    <li><a href="#BlogItAboutPage" data-icon="gear" data-theme="c">About</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2 align="center">Create a Blog</h2>
+            <form id="frm_create_blog" name="frm-create-blog" data-ajax="false">
+                <!--Blog title textbox-->
+                <label for="blogit_title">Title:</label>
+                <input type="text" id="blogit_title" name="blogit_title" class="required" data-clear-btn="true"
+                    placeholder="Blog title" required>
+                <!--Blog type dropdown list-->
+                <fieldset data-role="controlgroup">
+                    <legend>Blog Type:</legend>
+                    <div id="blogit_dropdown_forType">
+                        <label for="blogit_blog_type"></label>
+                        <!--Data for type is retrieved from the database via jQuery.
+                                        Check out facade.js for more info-->
+                        <select name="blogit_blog_type" id="blogit_blog_type">
+                            <option value="Personal">Personal</option>
+                            <option value="Hobbies & Passions">Hobbies & Passions</option>
+                            <option value="Life Experiences">Life Experiences</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <!--Blog text area-->
+                <textarea rows="10" cols="100" id="blogit_main_textarea" name="blogit_main_textarea" form="frm_create_blog"
+                    placeholder="Begin writing your blog here..."></textarea>
+                <!--Blog tags-->
+                <label for="blogit_tags">Tags (optional):</label>
+                <input type="tags" id="blogit_tags" name="blogit_tags" data-clear-btn="true" value="">
+                <!--Blog date of creation-->
+                <label for="blogit_date_posted">Blog Created On:</label>
+                <input type="date" id="blogit_date_posted" name="blogit_date_posted" data-theme="c" disabled>
+                <!--Blog enable comments-->
+                <label>
+                    <input type="checkbox" id="blogit_enablefeedback" name="blogit_enablefeedback" checked>Would you like to
+                        enable comments for this blog?
+                </label>
+                <button type="button" id="blogit_createblog" name="blogit_createblog" style="height:50px;width:150px">Create Blog</button>
+            </form>
+        </section>
+    </div>    
+</body>
+<footer data-role="footer" data-position="fixed" style="background-color:#42413b;">
+    <h4 style="color: white;">&copy; 2019 Marcus Rodrigues - Blog It</h4>
+</footer>
+</html>
