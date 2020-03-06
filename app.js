@@ -1,5 +1,6 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
+require('dotenv').config();
 
 const app = express();
 const mustache = mustacheExpress();
@@ -33,7 +34,7 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, function(err) {
     if (err) {
-        console.log('ERR: ', err);
+        console.log('SERVER ERR: ', err);
     } else {
         console.log('Listening on port ', port);
     }
