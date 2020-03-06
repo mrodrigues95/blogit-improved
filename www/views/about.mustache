@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blog It</title>
+    <!--My icon-->
+    <link rel="icon" href="../img/BlogItIcon.png">
+
+    <!--jQuery-->
+    <script src="../js/lib/jquery-2.1.4.js"></script>
+    <!--jQuery mobile-->
+    <script src="../js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jQuery validate-->
+    <script src="../js/lib/jquery.validate.js"></script>
+    <!--jQuery hashtag plugin-->
+    <script src="../js/lib/jquery.tagsinput.js"></script>
+    <!--jQuery mobile css-->
+    <link rel="stylesheet" type="text/css" href="../css/lib/jquery.mobile-1.4.5.css">
+    <!--jQuery hashtag plugin css-->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.tagsinput.css">
+
+    <!--My scripts-->
+    <script src="../js/database.js"></script>
+    <script src="../js/mainDAL.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/facade.js"></script>
+
+    <!--My style sheet-->
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.min.css">
+</head>
+<body>
+    <div data-role="page" id="BlogItAboutPage">
+        <header data-role="header" data-position="fixed" style="background-color:#42413b;">
+            <h1 style="color: white;">About</h1>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#BlogItHomePage" data-icon="home" data-theme="c">Home</a>
+                    </li>
+                    <li><a href="#BlogItCreatePage" data-icon="plus" data-theme="c">Create Blog</a>
+                    </li>
+                    <li><a href="#BlogItDashboardPage" data-icon="grid" data-theme="c">Dashboard</a>
+                    </li>
+                    <li><a href="#BlogItAboutPage" data-icon="gear" data-theme="c" class="ui-btn-active                     
+                        ui-state-persist">About</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h3>Developers Name: Marcus Rodrigues</h3>
+            <h5>Program Name: ITID (Information Technology Innovation and Design)</h5>
+            <h5>Course: PROG3185 - Mobile Applications</h5>
+            <h5>Instructor: Yash Shah</h5>
+            <div data-role="collapsibleset" style="background-color:#42413b;">
+                <div data-role="collapsible">
+                    <h3>Email</h3>
+                    <p>School e-mail: <a href="mailto:mrodrigues9405@conestogac.on.ca">mrodrigues9405@conestogac.on.ca</a></p>
+                    <p>Personal e-mail: <a href="mailto:marcus.rodrigues95@gmail.com">marcus.rodrigues95@gmail.com</a></p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>Conestoga College</h3>
+                    <p>Website: <a href="https://www.conestogac.on.ca/">https://www.conestogac.on.ca/</a></p>
+                </div>
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" style="background-color:#42413b;">
+            <h4 style="color: white;">&copy; 2019 Marcus Rodrigues - Blog It</h4>
+        </footer>
+    </div>
+</body>
+</html>

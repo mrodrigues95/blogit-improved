@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blog It</title>
+    <!--My icon-->
+    <link rel="icon" href="../img/BlogItIcon.png">
+
+    <!--jQuery-->
+    <script src="../js/lib/jquery-2.1.4.js"></script>
+    <!--jQuery mobile-->
+    <script src="../js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jQuery validate-->
+    <script src="../js/lib/jquery.validate.js"></script>
+    <!--jQuery hashtag plugin-->
+    <script src="../js/lib/jquery.tagsinput.js"></script>
+    <!--jQuery mobile css-->
+    <link rel="stylesheet" type="text/css" href="../css/lib/jquery.mobile-1.4.5.css">
+    <!--jQuery hashtag plugin css-->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.tagsinput.css">
+
+    <!--My scripts-->
+    <script src="../js/database.js"></script>
+    <script src="../js/mainDAL.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/facade.js"></script>
+
+    <!--My style sheet-->
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.min.css">
+</head>
+<body>
+    <div data-role="page" id="BlogItHomePage">
+        <header data-role="header" data-position="fixed" style="background-color:#42413b;">
+            <h1 style="color: white;">Blog It</h1>                
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#BlogItHomePage" data-icon="home" data-theme="c" class="ui-btn-active                     
+                        ui-state-persist">Home</a>
+                    </li>
+                    <li><a href="#BlogItCreatePage" data-icon="plus" data-theme="c">Create Blog</a>
+                    </li>
+                    <li><a href="#BlogItDashboardPage" data-icon="grid" data-theme="c">Dashboard</a>
+                    </li>
+                    <li><a href="#BlogItAboutPage" data-icon="gear" data-theme="c">About</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2>Blog It - Your personal blogger and friend</h2>
+            <p>Blog It is a personal blogging tool that will let you create, edit and post whatever you would like.</br>
+                <h3>With Blog It you can:</h3>
+                - Create new blogs</br>
+                - Edit recent blogs</br>
+                - View all your blogs in the dashboard</br></br>
+                You can start your blogging adventure by navigating to the "Create Blog" page and begin by creating your first blog.
+            </p>
+            <div align="center">
+                <img src="img/BlogItIcon.png" alt="BlogItIcon" style="width: 30%;">
+            </div>
+            <p>Please feel free to contact me if you have any suggestions or features you would like to see implemented.</p>
+        </section>
+        <footer data-role="footer" data-position="fixed" style="background-color:#42413b;">
+            <h4 style="color: white;">&copy; 2019 Marcus Rodrigues - Blog It</h4>
+        </footer> 
+    </div>    
+</body>
+</html>
