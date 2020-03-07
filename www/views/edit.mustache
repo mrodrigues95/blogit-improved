@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog It</title>
+    <!--My icon-->
+    <link rel="icon" href="../img/BlogItIcon.png">
+    <!--jQuery-->
+    <script src="../js/lib/jquery-2.1.4.js"></script>
+    <!--jQuery mobile-->
+    <script src="../js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jQuery validate-->
+    <script src="../js/lib/jquery.validate.js"></script>
+    <!--jQuery hashtag plugin-->
+    <script src="../js/lib/jquery.tagsinput.js"></script>
+    <!--jQuery mobile css-->
+    <link rel="stylesheet" type="text/css" href="../css/lib/jquery.mobile-1.4.5.css">
+    <!--jQuery hashtag plugin css-->
+    <link rel="stylesheet" type="text/css" href="../css/jquery.tagsinput.css">
+    
+    <!--My scripts-->
+    <script src="../js/database.js"></script>
+    <script src="../js/mainDAL.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/facade.js"></script>
+    
+    <!--My style sheet-->
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.squareui.min.css">
+</head>
+<body>
+    <div data-role="page" id="BlogItEditBlogPage">
+        <header data-role="header" data-position="fixed" style="background-color:#42413b;">
+            <h1 style="color: white;">Edit Blog</h1>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="home" data-icon="home" data-theme="c">Home</a>
+                    </li>
+                    <li><a href="create" data-icon="plus" data-theme="c">Create Blog</a>
+                    </li>
+                    <li><a href="dashboard" data-icon="grid" data-theme="c" class="ui-btn-active                     
+                        ui-state-persist">Dashboard</a>
+                    </li>
+                    <li><a href="about" data-icon="gear" data-theme="c">About</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <div id="blogit_edit_blog">
+                <h2 align="center">Edit Blog</h2>
+                {{#blog}}
+                <form method="POST" action="/edit/{{blog.id}}" id="frm_edit_blog" name="frm_edit_blog" data-ajax="false">
+                    <!--Blog title textbox-->
+                    <label for="blogit_title_edit">Title:</label>
+                    <input type="text" id="blogit_title_edit" name="title" class="required" data-clear-btn="true"
+                    value="{{title}}" required>
+                    <!--Blog author textbox-->
+                    <label for="blogit_title">Author:</label>
+                    <input type="text" id="blogit_author" name="author" class="required" data-clear-btn="true"
+                    value="{{author}}" required>
+                    <!--Blog type dropdown list-->
+                    <fieldset data-role="controlgroup">
+                    <legend>Blog Type:</legend>
+                    <div id="blogit_dropdown_forType_edit">
+                        <label for="blogit_blog_type_edit"></label>
+                        <!--Data for type is retrieved from the database via jQuery.
+                                        Check out facade.js for more info-->
+                        <select name="type" id="blogit_blog_type_edit" >
+                            <option value="" selected disabled hidden>{{category}}</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Hobbies & Passions">Hobbies & Passions</option>
+                            <option value="Life Experiences">Life Experiences</option>
+                        </select>
+                    </div>
+                    </fieldset>
+                    <!--Blog text area-->
+                    <textarea rows="10" cols="100" id="blogit_main_textarea_edit" name="content" form="frm_edit_blog">{{content}}</textarea>
+                    <!--Blog tags-->
+                    <label for="blogit_tags_edit">Tags:</label>
+                    <input type="tags" id="blogit_tags_edit" name="tag" data-clear-btn="true" value="{{tags}}">
+                    <!--Blog date of creation-->
+                    <label for="blogit_date_posted_edit">Blog Created On:</label>
+                    <input type="date" id="blogit_date_posted_edit" name="blogit_date_posted_edit" data-theme="c" value="{{createdon}}" disabled>
+                    <!--Blog enable comments-->
+                    <label>
+                    <input type="checkbox" id="blogit_enablefeedback_edit" name="enableComments">Would you like to
+                        enable comments for this blog?
+                    </label>
+                    <!--Buttons-->
+                    <div data-role="controlgroup" data-type="horizontal" align="left">
+                        <button type="submit" id="blogit_cancel_edit" name="editBlog" data-theme="b"
+                        style="background-color:yellow;" value="cancel"><font color="black">Cancel</font></button>
+                        <button type="submit" id="blogit_delete_blog_edit" name="editBlog" data-theme="b" value="delete">Delete Blog
+                        </button>
+                        <button type="submit" id="blogit_update_blog_edit" name="editBlog" data-theme="b"
+                        style="background-color:#3388cc;" value="update">Update Blog</button>
+                    </div>
+                </form>
+                {{/blog}}
+            </div>
+        </section>
+        <footer data-role="footer" data-position="fixed" style="background-color:#42413b;">
+            <h4 style="color: white;">&copy; 2019 Marcus Rodrigues - Blog It</h4>
+        </footer> 
+    </div>
+</body>
+</html>

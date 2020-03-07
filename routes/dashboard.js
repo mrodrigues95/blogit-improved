@@ -7,12 +7,12 @@ router.get('/', (req, res) => {
     db
         .query('SELECT * FROM blog')
         .then(results => {
-            res.render('www/views/dashboard', {
+            res.render('dashboard', {
                 blogs: results.rows
             });
         })
         .catch(e => {
-            console.log('SELECT ERR: ', e);
+            console.log('DASHBOARD ERR: ', e);
         });
 });
 

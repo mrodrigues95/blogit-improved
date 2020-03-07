@@ -4,7 +4,7 @@ const router = express.Router();
 
 // GET requests
 router.get('/', (req, res) => {
-    res.render('www/views/create-blog'); // show home page
+    res.render('create-blog'); // show home page
 });
 
 // POST requests
@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
     const sql = 'INSERT INTO blog (title, author, commentsenabled, tags, content, category)' +
                'VALUES ($1, $2, $3, $4, $5, $6);';
     const params = [req.body.title, req.body.author, req.body.enableComments, req.body.tag, req.body.content, req.body.type];
-    
+
     db
         .query(sql, params)
         .then(res => {

@@ -14,12 +14,13 @@ const homeRoute = require('./routes/home');
 const createBlogRoute = require('./routes/create');
 const dashboardRoute = require('./routes/dashboard');
 const aboutRoute = require('./routes/about');
+const editRoute = require('./routes/edit');
 
 // setup mustache express
 mustache.cache = null;
 app.engine('mustache', mustache);
 app.set('view engine', 'mustache');
-app.set('views', __dirname);
+app.set('views', './www/views');
 
 // Routes
 app.use(express.static('www'));
@@ -27,6 +28,7 @@ app.use('/home', homeRoute);
 app.use('/create', createBlogRoute);
 app.use('/dashboard', dashboardRoute);
 app.use('/about', aboutRoute);
+app.use('/edit', editRoute);
 
 // Start server
 app.listen(port, function(err) {
