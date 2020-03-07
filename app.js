@@ -5,29 +5,24 @@ require('dotenv').config();
 const app = express();
 const mustache = mustacheExpress();
 
-app.use(express.static('www'));
+// Import routes
+const homeRoute = require('./routes/home');
+const createBlogRoute = require('./routes/create');
+const dashboard = require('./routes/dashboard');
+const about = require('./routes/about');
 
 // setup mustache express
 mustache.cache = null;
 app.engine('mustache', mustache);
 app.set('view engine', 'mustache');
+app.set('views', __dirname);
 
-// GET requests
-app.get('/home', (req, res) => {
-    res.render(__dirname + '/www/views/home'); // show home page
-});
-
-app.get('/create', (req, res) => {
-    res.render(__dirname + '/www/views/create-blog'); // show create-blog page
-});
-
-app.get('/dashboard', (req, res) => {
-    res.render(__dirname + '/www/views/dashboard'); // show dashboard page
-});
-
-app.get('/about', (req, res) => {
-    res.render(__dirname + '/www/views/about'); // show about page
-});
+// Routes
+app.use(express.static('www'));
+app.use('/home', homeRoute);
+app.use('/create', createBlogRoute);
+app.use('/dashboard', dashboard);
+app.use('/about', about);
 
 // start server
 const port = process.env.PORT || 3000;
