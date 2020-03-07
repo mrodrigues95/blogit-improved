@@ -51,11 +51,15 @@
         </header>
         <section data-role="content">
             <h2 align="center">Create a Blog</h2>
-            <form method="POST" action="/createblog" id="frm_create_blog" name="frm-create-blog" data-ajax="false">
+            <form method="POST" action="/create" id="frm_create_blog" name="frm-create-blog" data-ajax="false">
                 <!--Blog title textbox-->
                 <label for="blogit_title">Title:</label>
-                <input type="text" id="blogit_title" name="blogit_title" class="required" data-clear-btn="true"
+                <input type="text" id="blogit_title" name="title" class="required" data-clear-btn="true"
                     placeholder="Blog title" required>
+                <!--Blog author textbox-->
+                <label for="blogit_title">Author:</label>
+                <input type="text" id="blogit_author" name="author" class="required" data-clear-btn="true"
+                    placeholder="Blog author" required>
                 <!--Blog type dropdown list-->
                 <fieldset data-role="controlgroup">
                     <legend>Blog Type:</legend>
@@ -63,7 +67,7 @@
                         <label for="blogit_blog_type"></label>
                         <!--Data for type is retrieved from the database via jQuery.
                                         Check out facade.js for more info-->
-                        <select name="blogit_blog_type" id="blogit_blog_type">
+                        <select name="type" id="blogit_blog_type">
                             <option value="Personal">Personal</option>
                             <option value="Hobbies & Passions">Hobbies & Passions</option>
                             <option value="Life Experiences">Life Experiences</option>
@@ -71,17 +75,17 @@
                     </div>
                 </fieldset>
                 <!--Blog text area-->
-                <textarea rows="10" cols="100" id="blogit_main_textarea" name="blogit_main_textarea" form="frm_create_blog"
+                <textarea rows="10" cols="100" id="blogit_main_textarea" name="content" form="frm_create_blog"
                     placeholder="Begin writing your blog here..."></textarea>
                 <!--Blog tags-->
                 <label for="blogit_tags">Tags (optional):</label>
-                <input type="tags" id="blogit_tags" name="blogit_tags" data-clear-btn="true" value="">
+                <input type="tags" id="blogit_tags" name="tag" data-clear-btn="true" value="">
                 <!--Blog date of creation-->
                 <label for="blogit_date_posted">Blog Created On:</label>
                 <input type="date" id="blogit_date_posted" name="blogit_date_posted" data-theme="c" disabled>
                 <!--Blog enable comments-->
                 <label>
-                    <input type="checkbox" id="blogit_enablefeedback" name="blogit_enablefeedback" checked>Would you like to
+                    <input type="checkbox" id="blogit_enablefeedback" name="enableComments" checked>Would you like to
                         enable comments for this blog?
                 </label>
                 <button type="submit" id="blogit_createblog" name="blogit_createblog" style="height:50px;width:150px">Create Blog</button>
