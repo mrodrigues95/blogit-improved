@@ -1,9 +1,14 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
-require('dotenv').config();
-
 const app = express();
 const mustache = mustacheExpress();
+const bodyParser = require('body-parser');
+require('dotenv/config');
+
+// App setup
+const port = process.env.PORT || 3000;
+const { Client } = require('pg');
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Import routes
 const homeRoute = require('./routes/home');
@@ -24,9 +29,20 @@ app.use('/create', createBlogRoute);
 app.use('/dashboard', dashboard);
 app.use('/about', about);
 
-// start server
-const port = process.env.PORT || 3000;
+// Connect to database
+const client = new Client({
+    connectionString: process.env.DBCONNECTION,
+});
+client.connect(() => {
+    console.log('Connected to database...');
+});
 
+client
+    .query('SELECT * FROM blog_type;')
+    .then(res => console.log(res.rows))
+    .catch(e => console.log('ERR: ${e}'))
+
+// start server
 app.listen(port, function(err) {
     if (err) {
         console.log('SERVER ERR: ', err);
