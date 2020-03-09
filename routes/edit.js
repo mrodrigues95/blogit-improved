@@ -21,6 +21,7 @@ router.get('/:id', (req, res) => {
         })
         .catch(e => {
             console.log('FETCH BLOG ERR: ', e);
+            res.redirect('/dashboard');
         })
 });
 
