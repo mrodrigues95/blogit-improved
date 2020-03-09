@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 router.get('/:id', (req, res) => {
     const sql = 'SELECT * FROM blog WHERE id = $1;';
     const params = [req.params.id];
-
+    
     db
         .query(sql, params)
         .then(results => {

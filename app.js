@@ -20,10 +20,11 @@ const editRoute = require('./routes/edit');
 mustache.cache = null;
 app.engine('mustache', mustache);
 app.set('view engine', 'mustache');
-app.set('views', './www/views');
+app.set('views', './www/views'); // views directory
 
 // Routes
 app.use(express.static('www'));
+app.use('/', homeRoute);
 app.use('/home', homeRoute);
 app.use('/create', createBlogRoute);
 app.use('/dashboard', dashboardRoute);
