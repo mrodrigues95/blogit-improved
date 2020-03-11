@@ -81,6 +81,11 @@ function initDB() {
     }
 }
 
+$(window).bind('hashchange', function() {
+    init();
+    initDB();
+});
+
 $(document).ready(function () {
     init();
     initDB();
