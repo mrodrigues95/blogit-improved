@@ -32,7 +32,6 @@ router.post('/:id', (req, res) => {
     // check if user wants to update/delete blog or go back
     if (editChoice == "cancel") {
         res.redirect('/dashboard');
-
     } else if (editChoice == "delete") {
         const sql = 'DELETE FROM blog WHERE id = $1;';
         const params = [req.params.id];
@@ -46,7 +45,6 @@ router.post('/:id', (req, res) => {
             .catch(e => {
                 console.log('DELETE ERR: ', e)
             });
-
     } else if (editChoice == "update") {
         req.body.enableComments = Boolean(req.body.enableComments);
 
